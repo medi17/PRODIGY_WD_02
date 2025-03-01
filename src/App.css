@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+:root{
+     --primary-color: #0B0B29;
+     --secondary-color: #21354D;
+     --tertiary-color: #21354D;
+     --fourth-color: #888290;
+     --green-color: #0D7A15;
+     --red-color: #DC2D20;
+     --blueBlack-color: #1D2043;
+     --blue-color: #396B9A;
+     --dynamicBlue: #646A82;
+     --white: #ffffff;
+     
+}
+body{
+     background-color: var(--primary-color);
+     color: #ffffff;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     text-align: center;
+}
+.stopwatch h2{
+     font-family: "Epilogue", serif;
+     font-weight: 400;
+     color: var(--fourth-color);
+     font-size: 50px;
+     margin-bottom: 1rem;
+}
+.stopwatch h2 span{
+     color: var(--dynamicBlue);
+}
+.stop-box {
+     padding: 40px 0 20px;
+     background-color: var(--tertiary-color);
+     min-width: 400px;
+     min-height: 100px;
+     max-width: 900px;
+     border-radius: 16px;
+}
+.stop-box .display{
+     font-family: "Epilogue", serif;
+     font-weight: 400;
+     font-size: 50px;
+     letter-spacing: 2px;
+     margin-bottom: 28px;
+}
+.controls{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 8px;
+}
+.btn{
+     padding: 8px 24px;
+     border-radius: 8px;
+     border: none;
+     color: var(--white);
+}
+.start{
+     background-color: var(--green-color);
+}
+.save {
+     background-color: var(--blue-color);
+}
+.reset {
+     background-color: var(--blueBlack-color);
+}
+.stop {
+     background-color: var(--red-color);
+}

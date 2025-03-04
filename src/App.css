@@ -44,6 +44,7 @@ body{
      min-height: 100px;
      max-width: 900px;
      border-radius: 16px;
+     margin-bottom: 24px;
 }
 .stop-box .display{
      font-family: "Istok Web", serif;
@@ -75,4 +76,31 @@ body{
 }
 .stop {
      background-color: var(--red-color);
+}
+
+
+/* Lap-div-CSS */
+
+.lap-time{
+     background-color: var(--tertiary-color);
+     border-radius: 12px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 16px;
+     margin-bottom: 20px;
+}
+.lap-time h3{
+     font-family: "Istok Web", serif;
+     font-weight: 200;
+     font-size: 24px;
+}
+.lap-time button{
+     background-color: var(--red-color);
+}
+.lower{
+     height: 150px;
+     overflow-y: scroll;
+     scrollbar-width: none;
+     -ms-overflow-style: none;
 }

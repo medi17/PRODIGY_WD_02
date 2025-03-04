@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import Lap from './components/lap'
 import  './App.css';
 
 function App() {
@@ -7,6 +8,8 @@ function App() {
   const [elapsedTime, setElapsedTime] = useState<number>(0);
   const intervalRef = useRef<number>(0);
   const startTimeRef = useRef<number>(0);
+
+  const [list, setList] = useState<string[]>([]);
 
   useEffect(() => {
     if (isRunning) {
@@ -31,7 +34,22 @@ function App() {
   function reset() {
     setElapsedTime(0)
     setIsRunning(false);
-  }  
+  } 
+
+  const handleChecking = (id: number) => {
+          setList((prevList: string[]) => {
+               return prevList.filter((_, index) => {
+                    return index !== id
+               })
+          })
+     }
+  function save(): void {
+    (isRunning && 
+    setList((prevlist) => {
+        return  [...prevlist, formatTime()]
+    }))
+    
+  }
   function formatTime() {
 
     const pad = (num: number, length: number) => {
@@ -47,14 +65,33 @@ function App() {
 
   return (
     <div className="stopwatch">
-      <h2><span>Stop</span> watch</h2>
-      <div className="stop-box">
-        <div className="display">{formatTime()}</div>
-        <div className="controls">
-          <button onClick={start} className='start btn'>Start</button>
-          <button onClick={stop} className='stop btn'>Stop</button>
-          <button onClick={reset} className='reset btn'>Reset</button> 
+      <div className="upper">
+        <h2><span>Stop</span> watch</h2>
+        <div className="stop-box">
+          <div className="display">{formatTime()}</div>
+          <div className="controls">
+            <button onClick={start} className='start btn'>Start</button>
+            <button onClick={stop} className='stop btn'>Stop</button>
+            <button onClick={reset} className='reset btn'>Reset</button>
+            <button onClick={save} className='save btn'>Lap</button> 
+          </div>
         </div>
+      </div>
+      <div className="lower">
+        <ul className='lap-list'>
+          {
+            list.map((laptime, index) => (
+              <Lap
+                key = {index}
+                id = {index}
+                value={laptime}
+                onChecked = {() => handleChecking(index)}
+              />
+              
+              )
+            )
+          }
+        </ul>
       </div>
     </div>
   )
